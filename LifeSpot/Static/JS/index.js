@@ -2,28 +2,38 @@
 * Сессия теперь создается в общей области видимости.
 * Будет "захватываться" тремя функциями
 * 
-* */ 
-let session =  new Map();
+* */
+//let session =  new Map();
+//let session = {};
+let session = {
+    'startDate': new Date().toLocaleString(),
+    'userAgent': window.navigator.userAgent,
+    'userAge': prompt("Пожалуйста, введите ваш возраст?")
+};
 
 /*
 * Сохранение данных сессии сразу при заходе пользователя на страницу
 * 
 * */
+
 function handleSession(){
     // Сохраним время начала сессии
-    session.set("startDate", new Date().toLocaleString())
+    //session.set("startDate", new Date().toLocaleString())
+    session["startDate"] = new Date().toLocaleString();
     // Сохраним UserAgent
-    session.set("userAgent", window.navigator.userAgent)
+    //session.set("userAgent", window.navigator.userAgent)
+    session["userAgent"] = window.navigator.userAgent;
+    session["userAge"] = prompt("Пожалуйста, введите ваш возраст?");
 }
 
 /*
 * Проверка возраста пользователя
 * 
 * */
+
 function checkAge(){
-    session.set("age", prompt("Пожалуйста, введите ваш возраст?"))
-    
-    if(session.get("age") >= 18){
+    //session["userAge"] = prompt("Пожалуйста, введите ваш возраст?")   
+    if (session["userAge"] >= 18){
         alert("Приветствуем на LifeSpot! " + '\n' +  "Текущее время: " + new Date().toLocaleString() );
     }
     else{
@@ -37,9 +47,15 @@ function checkAge(){
 * Вывод данных сессии в консоль
 * 
 * */
-let sessionLog = function () {
-    for (let result of session){
-        console.log(result)
+//let sessionLog = function () {
+//    for (let result of session){
+//        console.log(result)
+//    }
+//}
+
+let sessionLog = () => {
+    for (let item in session) {
+        console.log('\t' + item +':\t ' + session[item]);
     }
 }
 
@@ -51,7 +67,7 @@ let sessionLog = function () {
 
 function filterContent(){
     let elements = document.getElementsByClassName('video-container');
-
+    
     for (let i = 0; i <= elements.length; i++ ){
         let videoText = elements[i].getElementsByTagName('h3')[0].innerText;
 
