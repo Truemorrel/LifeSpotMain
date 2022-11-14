@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css">
-    <script async type="text/javascript" src="../Static/JS/index.js"></script>
+    <script type="text/javascript" src="../Static/JS/index.js"></script>
     <script>
         // сохранение сессии
         //handleSession();
@@ -13,7 +13,7 @@
         //checkAge();
 
         // вывод данных сессии в консоль
-        sessionLog();
+        handleSession(logger, checker);
 
         // функция для получения пользовательского ввода
         const inputParseFunction = function () {
