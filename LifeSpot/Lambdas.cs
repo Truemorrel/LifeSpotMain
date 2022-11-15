@@ -5,9 +5,9 @@ namespace LifeSpot
 {
     class Lambdas  
     {
-        delegate void Printer();
+        protected delegate void Printer();
      
-        public static void Test()
+        public virtual void Test()
         {
             Console.OutputEncoding = Encoding.Unicode;
             
@@ -16,7 +16,7 @@ namespace LifeSpot
             Print(numbers, () => { Console.WriteLine("Ура! Нашел четное число!"); }); 
         }
 
-        private static void Print(int[] numbers, Printer func)
+        protected static void Print(int[] numbers, Printer func)
         {
             foreach (var i in numbers)
             {
