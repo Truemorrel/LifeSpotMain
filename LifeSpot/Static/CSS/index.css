@@ -100,3 +100,120 @@ input {
 input:focus {
     border: 2px solid dimgrey;
 }
+
+div#imagebox.slider {
+    position: relative;
+    width: 1000px;
+    height: 408px;
+}
+/*    
+    overflow: hidden;
+*/
+/*position: relative;
+float: left;
+*/
+/*.slider {
+width: 1000px;
+height: 408px;
+}*/
+    /*.slider-wrapper {
+    width: 1000px;
+    height: 408px;
+}
+*/
+    /*.slide {
+
+    position: relative;
+    width: 1000px;
+    height: 408px;
+}*/
+
+    div#imagebox.slider div.slider-wrapper {
+        height: 408px;
+        position: absolute;
+    }
+
+    div#imagebox.slider div.slider-nav {
+        text-align: center;
+        top: 374px;
+        position: relative;
+    }
+/*        
+    height: 408px;
+*/
+
+    div#imagebox.slider div.slider-nav button {
+        display: inline-block;
+        vertical-align: middle;
+        display: inline-block;
+        border: 1px solid #ddd;
+        color: lightgrey;
+        width: 2em;
+        height: 2em;
+        line-height: 2;
+        text-align: center;
+    }
+
+/*
+    botton
+        font-palette: revert;
+        text-decoration: none;
+    position: absolute;
+*/
+
+/*
+position: relative;
+
+    position: absolute;
+*/
+
+
+
+div#imagebox.slider div.slider-nav a.current {
+    border-color: #000;
+    color: #000;
+    font-weight: bold;
+}
+
+    div#imagebox.slider div.slider-wrapper div#slide-1.slide {
+        hidden: false;
+        position: absolute;
+        transition: left 500ms linear;
+    }
+
+    div#imagebox.slider div.slider-wrapper div#slide-2.slide,
+    div#imagebox.slider div.slider-wrapper div#slide-3.slide {
+        hidden: true;
+        position: absolute;
+        transition: left 500ms linear;
+    }
+/*
+*/
+/*    
+div#imagebox.slider div.slidetoaside {
+}
+    height: 408px;
+    position: absolute;
+*/
+
+div#imagebox.slider div.slidetoaside button#prev.slider-previous {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    left: 0px;
+}
+
+div#imagebox.slider div.slidetoaside button#next.slider-next {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    right: 0px;
+}
+
+
+/*   
+div#imagebox.slider .slider-nav {
+}    width: 1000px;
+    height: 408px;
+*/
+

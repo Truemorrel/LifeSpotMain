@@ -64,7 +64,6 @@ function Comment() {
 }
 
 let addComment = function () {
-    debugger
     let comment = new Comment()
 
     if (comment.empty) {
@@ -136,3 +135,71 @@ function addLike(id) {
     // Обновим текст элемента
     element.innerText = array.join(' ')
 }
+function ready(e) {
+    let imgs = document.getElementsByClassName("slide");
+    for (let i = 1; i < imgs.length; i++) {
+        imgs[i].hidden = true ;
+    }
+    console.log(imgs);
+}
+//document.addEventListener("DOMContentLoaded", ready);
+
+btnClick = function () {
+    //
+    let imgs = document.querySelectorAll("[id^='slide-']");
+    for (let i = 0; i < imgs.length; i++) {
+        if (imgs[i].id != 'slide-' + this.textContent) {
+            imgs[i].hidden = true;
+            if (i != 0) {
+                document.querySelector("button[class='slider-next']").disabled = false;
+            } else if (i != (imgs.length - 1)) {
+                document.querySelector("button[class='slider-previous']").disabled = false;
+            }
+        } else {
+            imgs[i].hidden = false;
+            if (i == 0) {
+                document.querySelector("button[class='slider-previous']").disabled = true;
+                document.querySelector("button[class='slider-next']").disabled = false;
+            } else if (i == (imgs.length -1)){
+                document.querySelector("button[class='slider-next']").disabled = true;
+                document.querySelector("button[class='slider-previous']").disabled = false;
+            }
+        }
+    }
+}
+slideAside = function () {
+    let imgs = document.querySelectorAll("[id^='slide-']");
+//    let btns = document.querySelectorAll("button[class^='slider-']");
+    let clickedImg;
+    for (let i = 0; i < imgs.length; i++) {
+        if (!imgs[i].hidden) {
+            clickedImg = i;
+        }            
+    }
+    if (this.id == 'next') {
+        document.querySelector("button[class='slider-previous']").disabled = false;
+        if (clickedImg == (imgs.length - 2)) {
+            this.disabled = true;
+        }
+        imgs[clickedImg].hidden = true;
+        if (imgs[clickedImg].nextElementSibling != null) {
+            imgs[clickedImg].nextElementSibling.hidden = false;
+        }
+    };
+    if (this.id == 'prev') {
+        document.querySelector("button[class='slider-next']").disabled = false;
+        if (clickedImg == (imgs.length - 2)) {
+            this.disabled = true
+        }
+        imgs[clickedImg].hidden = true;
+        if (imgs[clickedImg].previousElementSibling != null) {
+            imgs[clickedImg].previousElementSibling.hidden = false;
+        }
+    };
+}
+
+ny.addEventListener("click", btnClick, false);
+spb.addEventListener("click", btnClick, false);
+ldn.addEventListener("click", btnClick, false);
+prev.addEventListener("click", slideAside, false);
+next.addEventListener("click", slideAside, false);
